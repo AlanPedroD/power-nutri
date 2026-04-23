@@ -360,9 +360,14 @@
   position: relative;
 }
 
-.product-card:hover {
-  border-color: rgba(126, 232, 96, 0.4);
+
+@media (hover: hover) {
+  .product-card:hover {
+    border-color: rgba(232, 255, 0, .4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  }
 }
+
 
 .discount-tag {
   position: absolute;
