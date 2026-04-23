@@ -367,6 +367,14 @@
     box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
   }
 }
+/* Dispositivos com touch (sem hover real) */
+@media (hover: none) {
+  .product-card:hover {
+    border-color: inherit;
+    box-shadow: none;
+    transform: none;
+  }
+}
 
 
 .discount-tag {
