@@ -397,10 +397,15 @@ nav {
   flex-direction: column;
 }
 
-.product-card:hover {
+/* .product-card:hover {
   border-color: rgba(232, 255, 0, .4);
-  /* transform: translateY(-4px); */
   box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+} */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    border-color: rgba(232, 255, 0, .4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  }
 }
 
 .product-img {
