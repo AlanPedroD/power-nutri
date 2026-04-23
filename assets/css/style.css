@@ -397,10 +397,7 @@ nav {
   flex-direction: column;
 }
 
-/* .product-card:hover {
-  border-color: rgba(232, 255, 0, .4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
-} */
+
 @media (hover: hover) and (pointer: fine) {
   .product-card:hover {
     border-color: rgba(232, 255, 0, .4);
@@ -1482,26 +1479,3 @@ footer {
   display: none !important;
 }
 
-
-/* RETIRAR EFEITOS EM DISPOSITIVOS MOBILE  */
-@media (hover: none) and (pointer: coarse) {
-  /* Remove animações e transições */
-  * {
-    transition: none !important;
-    animation: none !important;
-  }
-
-  /* Remove efeitos de interação */
-  *:hover,
-  *:active,
-  *:focus {
-    transform: none !important;
-    box-shadow: none !important;
-    filter: none !important;
-  }
-
-  /* Remove highlight azul do toque (mobile) */
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
-}
