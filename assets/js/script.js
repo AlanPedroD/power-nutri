@@ -25,7 +25,7 @@ const DEFAULT_PRODUCTS = [
   { id: 16, order: 15, name: 'Kit Creatina & Energia', cat: 'kits', desc: 'Creatina Monohidratada + Creatina + Cafeína. Dupla de performance.', price: 199.90, oldPrice: 249.80, emoji: '⚡', badge: 'kit' },
 ];
 
-const WHATSAPP_NUMBER = '5511999999999';
+const WHATSAPP_NUMBER = '5581986953009';
 const INITIAL_SHOW = 8;
 
 // ===== CLOUDINARY =====
