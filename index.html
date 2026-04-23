@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerNutri Suplementos</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <script src="assets/js/hero.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">POWER<span>NUTRI</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#produtos" onclick="filterCat('all',this)" class="active">Produtos</a></li>
+        <li><a href="#produtos" onclick="filterCat('whey',this)">Whey Protein</a></li>
+        <li><a href="#produtos" onclick="filterCat('creatina',this)">Creatina</a></li>
+        <li><a href="#produtos" onclick="filterCat('vitaminas',this)">Vitaminas</a></li>
+        <li><a href="#produtos" onclick="filterCat('pretreino',this)">Pré-Treino</a></li>
+        <li><a href="#produtos" onclick="filterCat('kits',this)">Kits</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
+        <button class="cart-btn" onclick="toggleCart()">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#produtos" onclick="filterCat('all',this);closeMobile()">Todos os Produtos</a>
+    <a href="#produtos" onclick="filterCat('whey',this);closeMobile()">Whey Protein</a>
+    <a href="#produtos" onclick="filterCat('creatina',this);closeMobile()">Creatina</a>
+    <a href="#produtos" onclick="filterCat('vitaminas',this);closeMobile()">Vitaminas</a>
+    <a href="#produtos" onclick="filterCat('pretreino',this);closeMobile()">Pré-Treino</a>
+    <a href="#produtos" onclick="filterCat('kits',this);closeMobile()">Kits</a>
+  </div>
+
+  <!-- HERO NOVA -->
+  <div class="hero">
+    <div class="bg-glow"></div>
+    <div class="layout">
+      <div class="content">
+        <div class="badge">
+          <div class="badge-dot"></div>Promoção ativa: até 30% OFF
+        </div>
+        <h1>Potencialize seu treino com<br><span>os melhores suplementos.</span></h1>
+        <p class="sub">Suplementos premium para quem leva<br>a evolução a sério. Resultado real, entrega rápida.</p>
+        <div class="btns">
+          <a href="#produtos" class="btn-primary">Comprar agora</a>
+          <a href="#produtos" class="btn-secondary">Ver Produtos</a>
+        </div>
+
+        <div class="social-proof">
+          <div class="avatars">
+            <div class="av av1">RK</div>
+            <div class="av av2">AM</div>
+            <div class="av av3">LC</div>
+            <div class="av av4">FO</div>
+            <div class="av av5">BB</div>
+            <div class="av more">+</div>
+          </div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="sp-text"><strong>+3.400 clientes</strong> satisfeitos</div>
+          </div>
+
+          <div class="trust-divider"></div>
+
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <path d="M8 1L10.2 5.5L15 6.2L11.5 9.6L12.4 14.4L8 12L3.6 14.4L4.5 9.6L1 6.2L5.8 5.5L8 1Z"
+                  stroke="#b4e600" stroke-width="1.4" fill="none" />
+              </svg>
+              <span>Qualidade Premium</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#b4e600" stroke-width="1.4" />
+                <path d="M5 4V3C5 2.4 5.4 2 6 2H10C10.6 2 11 2.4 11 3V4" stroke="#b4e600" stroke-width="1.4" />
+                <path d="M8 8V10M6.5 9H9.5" stroke="#b4e600" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+              <span>Entrega rápida</span>
+            </div>
+          </div>
+        </div>
+      </div> <!-- FECHA .content -->
+
+      <div class="carousel-wrap">
+        <div class="carousel-window">
+          <div class="carousel-track" id="track">
+
+            <div class="product-card" onclick="goTo('https://seusite.com/whey')">
+              <div class="discount-tag">-30%</div>
+              <div class="prod-img" style="background:linear-gradient(135deg,#1a2a1a,#2a4a2a)">💪</div>
+              <div class="prod-category">Proteína</div>
+              <div class="prod-title">Whey Protein Pro</div>
+              <div class="prod-desc">2kg · Chocolate · Alto desempenho muscular</div>
+              <div class="prod-price"><span class="price-old">R$ 199</span><span class="price-new">R$ 139</span></div>
+              <button class="btn-buy" onclick="event.stopPropagation();goTo('https://seusite.com/whey')">Comprar agora
+                →</button>
+            </div>
+
+            <div class="product-card" onclick="goTo('https://seusite.com/creatina')">
+              <div class="discount-tag">-25%</div>
+              <div class="prod-img" style="background:linear-gradient(135deg,#1a1a2a,#2a2a4a)">⚡</div>
+              <div class="prod-category">Força</div>
+              <div class="prod-title">Creatina Monohidratada</div>
+              <div class="prod-desc">300g · Sem sabor · Força e recuperação</div>
+              <div class="prod-price"><span class="price-old">R$ 89</span><span class="price-new">R$ 67</span></div>
+              <button class="btn-buy" onclick="event.stopPropagation();goTo('https://seusite.com/creatina')">Comprar
+                agora →</button>
+            </div>
+
+            <div class="product-card" onclick="goTo('https://seusite.com/pre-treino')">
+              <div class="discount-tag">-20%</div>
+              <div class="prod-img" style="background:linear-gradient(135deg,#2a1a0a,#4a2a0a)">🔥</div>
+              <div class="prod-category">Pré-treino</div>
+              <div class="prod-title">Pre-Workout Extreme</div>
+              <div class="prod-desc">300g · Frutas vermelhas · Energia máxima</div>
+              <div class="prod-price"><span class="price-old">R$ 129</span><span class="price-new">R$ 103</span></div>
+              <button class="btn-buy" onclick="event.stopPropagation();goTo('https://seusite.com/pre-treino')">Comprar
+                agora →</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button class="nav-btn" onclick="move(-1)">&#8592;</button>
+          <div class="dots" id="dots"></div>
+          <button class="nav-btn" onclick="move(1)">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features-bar">
+    <div class="features-inner">
+      <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <div>
+          <div class="feature-title">Frete Grátis</div>
+          <div class="feature-sub">Acima de R$200</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div>
+          <div class="feature-title">Site Seguro</div>
+          <div class="feature-sub">SSL & Pagamento protegido</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">✅</div>
+        <div>
+          <div class="feature-title">Produto Autêntico</div>
+          <div class="feature-sub">100% original</div>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💬</div>
+        <div>
+          <div class="feature-title">Atendimento rápido</div>
+          <div class="feature-sub">Via WhatsApp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES BAR -->
+  <div class="categories-section" id="produtos">
+    <div class="categories-inner">
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab active" onclick="filterCat('all',this)">Produtos</button>
+        <button class="cat-tab" onclick="filterCat('whey',this)">💪 Whey Protein</button>
+        <button class="cat-tab" onclick="filterCat('creatina',this)">⚡ Creatina</button>
+        <button class="cat-tab" onclick="filterCat('vitaminas',this)">🌿 Vitaminas</button>
+        <button class="cat-tab" onclick="filterCat('pretreino',this)">🏋️‍♂️ Pré-Treino</button>
+        <button class="cat-tab" onclick="filterCat('kits',this)">📦 Kits</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section class="products-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">NOSSOS<span> PRODUTOS</span></h2>
+        <p class="section-sub" id="productCount"></p>
+      </div>
+      <div id="catalogRoot"></div>
+      <div class="load-more-wrap" id="loadMoreWrap">
+        <button class="load-more-btn" onclick="loadMore()">Carregar mais produtos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">POWER<span>NUTRI</span></a>
+          <p>O combustível que o seu corpo precisa.</p>
+          <button class="admin-btn admin-footer" onclick="openAdmin()">⚙ Admin</button>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="mailto:suporte@powernutri.com.br">suporte@powernutri.com.br</a>
+          <a href="tel:+5511999999999">(11) 99999-9999</a>
+        </div>
+        <div class="footer-col">
+          <h4>Segurança</h4>
+          <p>Site 100% Seguro</p>
+          <p>Pagamento via Pix e Cartão</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-inner">
+        <p>© 2026 PowerNutri Suplementos. Todos os diretos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="wa-float" href="https://wa.me/5511999999999" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span class="wa-tooltip">Fale conosco!</span>
+  </a>
+
+  <!-- CART PANEL -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h2 class="cart-title">CARRINHO</h2>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-summary" id="cartSummary"></div>
+      <button class="checkout-btn" onclick="openCheckout()">Finalizar Compra →</button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">FINALIZAR PEDIDO</h2>
+        <button class="modal-close" onclick="closeCheckout()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="order-summary-box" id="orderSummaryBox"></div>
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" type="text" id="f_name" placeholder="Seu nome completo">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Endereço de entrega</label>
+          <input class="form-input" type="text" id="f_addr" placeholder="Rua, número, bairro, cidade - UF">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Forma de pagamento</label>
+          <select class="form-select" id="f_payment" onchange="onPaymentChange()">
+            <option value="">Selecione...</option>
+            <option value="pix">Pix (5% de desconto!)</option>
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+          </select>
+          <div class="pix-notice" id="pixNotice">
+            <p>🎉 Ótimo! Pagando via Pix você recebe <strong>5% de desconto</strong> no total do pedido!</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Observações</label>
+          <textarea class="form-textarea" id="f_obs"
+            placeholder="Informações adicionais sobre seu pedido..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="whatsapp-btn" onclick="sendWhatsApp()">
+          <svg width="22" height="22" fill="white" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Confirmar Pedido via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div class="admin-overlay" id="adminOverlay">
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h2 class="admin-title">⚙ PAINEL ADMIN</h2>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button id="adminLogoutBtn" onclick="doLogout()"
+            style="display:none;background:transparent;border:1px solid var(--gray);color:var(--gray);border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;">🚪
+            Sair</button>
+          <button class="modal-close" onclick="closeAdmin()">✕</button>
+        </div>
+      </div>
+      <div class="admin-body">
+        <div class="admin-nav">
+          <button class="admin-tab active" onclick="adminTab('list',this)">Produtos Cadastrados</button>
+          <button class="admin-tab" onclick="adminTab('add',this)">Adicionar Produto</button>
+        </div>
+        <div id="adminListView"></div>
+        <div id="adminAddView" style="display:none">
+          <div class="admin-form" id="adminForm">
+            <div class="admin-form-row">
+              <div class="form-group"><label class="form-label">Nome do Produto</label><input class="form-input"
+                  id="ap_name" placeholder="Ex: Whey 100% Isolado"></div>
+              <div class="form-group"><label class="form-label">Categoria</label>
+                <select class="form-select" id="ap_cat">
+                  <option value="whey">Whey Protein</option>
+                  <option value="creatina">Creatina</option>
+                  <option value="vitaminas">Vitaminas</option>
+                  <option value="pretreino">Pré-Treino</option>
+                  <option value="kits">Kits</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label">Descrição</label><textarea class="form-textarea"
+                id="ap_desc" placeholder="Descrição curta do produto..." style="min-height:70px"></textarea></div>
+            <div class="admin-form-row">
+              <div class="form-group"><label class="form-label">Preço (R$)</label><input class="form-input"
+                  id="ap_price" type="number" step="0.01" placeholder="189.90"></div>
+              <div class="form-group"><label class="form-label">Preço antigo (R$, opcional)</label><input
+                  class="form-input" id="ap_old" type="number" step="0.01" placeholder="220.00"></div>
+            </div>
+            <div class="admin-form-row">
+              <div class="form-group">
+                <label class="form-label">Imagem do Produto</label>
+                <div id="ap_image_preview"
+                  style="width:80px;height:80px;border-radius:10px;background:var(--surface);border:2px dashed var(--gray);display:flex;align-items:center;justify-content:center;margin-bottom:8px;overflow:hidden;">
+                  <span style="font-size:28px">📷</span>
+                </div>
+                <button type="button" class="admin-save-btn" style="width:auto;padding:8px 16px;font-size:13px"
+                  onclick="openCloudinaryUpload()">📤 Upload de Imagem</button>
+                <input type="hidden" id="ap_image" value="">
+              </div>
+              <div class="form-group"><label class="form-label">Badge</label>
+                <select class="form-select" id="ap_badge">
+                  <option value="">Nenhum</option>
+                  <option value="new">Novo</option>
+                  <option value="hot">Hot</option>
+                  <option value="kit">Kit</option>
+                  <option value="sale">Oferta</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group"
+              style="display:flex;align-items:center;gap:12px;background:rgba(232,255,0,0.05);border:1px solid rgba(232,255,0,0.15);border-radius:10px;padding:14px 18px;">
+              <input type="checkbox" id="ap_featured"
+                style="width:18px;height:18px;accent-color:#E8FF00;cursor:pointer;flex-shrink:0;">
+              <div>
+                <label for="ap_featured"
+                  style="font-size:14px;font-weight:600;color:#f5f5f0;cursor:pointer;display:block;">
+                  ⭐ Destacar no carrossel da Hero
+                </label>
+                <span style="font-size:12px;color:#888;">O produto aparecerá no carrossel da página inicial.</span>
+              </div>
+            </div>
+            <input type="hidden" id="ap_editId" value="">
+            <button class="admin-save-btn" onclick="saveProduct()">💾 Salvar Produto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Tela de Login -->
+  <!-- LOGIN MODAL -->
+  <div id="loginOverlay"
+    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;">
+    <div
+      style="background:var(--surface);border-radius:16px;padding:32px;width:100%;max-width:360px;display:flex;flex-direction:column;gap:16px;">
+      <h2 style="color:var(--text);margin:0;text-align:center">🔐 Acesso Admin</h2>
+      <input id="login_email" type="email" placeholder="E-mail" class="form-input">
+      <input id="login_password" type="password" placeholder="Senha" class="form-input">
+      <p id="loginError" style="color:#f87171;margin:0;font-size:13px;text-align:center"></p>
+      <button class="admin-save-btn" onclick="doLogin()">Entrar</button>
+    </div>
+  </div>
+
+  <!-- HERO PRODUCT MODAL -->
+  <div class="hero-modal-overlay" id="heroProductModal">
+    <div class="hero-modal">
+      <div class="hero-modal-header">
+        <div class="hero-modal-discount-wrap"></div>
+        <button class="hero-modal-close" onclick="closeHeroModal()">✕</button>
+      </div>
+      <div class="hero-modal-body">
+        <div class="hero-modal-img"></div>
+        <div>
+          <div class="hero-modal-cat"></div>
+          <div class="hero-modal-name"></div>
+        </div>
+        <div class="hero-modal-desc"></div>
+        <div class="hero-modal-price-block">
+          <div>
+            <div class="hero-modal-old-price-wrap"></div>
+            <div class="hero-modal-price"></div>
+          </div>
+        </div>
+        <button class="hero-modal-add-btn">
+          🛒 Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+  <script src="assets/js/firebase-config.js"></script>
+  <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
